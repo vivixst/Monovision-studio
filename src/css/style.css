@@ -1,0 +1,501 @@
+img {
+    display: block;
+    max-inline-size: 100%;
+}
+
+:root {
+    --light: #F5F5F7;
+    --dark: #221F20;
+    --container-padding-inline: 13%;
+    --footer-padding-inline: 10%;
+
+    @media screen and (max-width: 768px) {
+    --container-padding-inline: 6%;
+    --footer-padding-inline: 6%;
+    }
+
+    @media screen and (max-width: 576px) {
+    --container-padding-inline: 15px;
+    --footer-padding-inline: 15px;
+    }
+}
+
+html {
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth; /*щоб плавно переходило до тої частини сайту яка в посиланні*/
+}
+
+.container {
+    padding: 0 var(--container-padding-inline);
+}
+
+.promo {
+    position: relative;
+    min-height: 100vh;
+    background: url('../img/Bg.jpg') center center / cover no-repeat;
+    padding-top: 75px;
+
+    @media screen and (max-width: 768px) {
+        & {
+        background-image: url('../img/Bg_tablet.png');
+        }
+    }
+        
+    @media screen and (max-width: 576px) {
+        min-height: 500px;
+        padding-top: 50px;  
+    }
+}
+
+.promo__title {
+    margin-top: 75px;
+    font-weight: 400;
+    font-size: 60px;
+    text-transform: uppercase;
+    color: var(--light);
+
+    @media screen and (max-width: 768px) {
+        font-size: 48px;
+    }
+
+    @media screen and (max-width: 576px) {
+        font-size: 26px;
+    }
+}
+
+.promo__subtitle {
+    margin-top: 124px;
+    font-weight: 100;
+    font-size: 32px;
+    color: var(--light);
+
+    @media screen and (max-width: 768px) {
+        &{
+        margin-top: 80px;
+         }
+    }
+
+    @media screen and (max-width: 576px) {
+        margin-top: 30px;
+        font-size: 16px;        
+    }
+}
+
+.promo_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 100;
+    margin-top: 20px;
+    padding: 3px 10px;
+    width: 160px;
+    min-height: 38px;
+    border: 1px solid var(--light);
+    background: rgba(217, 217, 217, 0);
+    font-size: 16px;
+    color: var(--light);
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    @media screen and (max-width: 576px) {
+        font-size: 14px;
+        width: 120px;
+        min-height: 30px;        
+    }
+}
+
+.promo_button:hover {
+    font-weight: 500;
+    box-shadow: 5px 5px 10px 0px rgba(255, 255, 255, 0.62)
+    
+    
+}
+
+.promo__adress {
+    position: relative;
+    margin-top: 100px;
+    font-weight: 100;
+    font-size: 16px;
+    color: var(--light);
+    address {
+        font-style: normal;
+    }
+    
+    a {
+        color: var(--light);
+        text-decoration: none; /*щоб посилання було без підкреслинь*/
+    }
+    
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -45px;
+        top: -17px;
+        height: 49px;
+        width: 49px;
+        background: url(../icons/Arrow.svg) center center / cover no-repeat;
+    }
+    @media screen and (max-width: 768px) {
+        & {
+            margin-top: 80px;
+        }
+
+        &::before{
+        left: -40px;
+        } 
+    }
+    @media screen and (max-width: 750px) {
+        &::before {
+            display: none;
+        }
+        
+    }
+    @media screen and (max-width: 576px) {
+        margin-top: 130px;   
+    }
+}
+
+.keywords {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0; /*щоб вниз опустить список*/
+    padding: 0 360px;
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.12) 50%, rgba(255, 255, 255, 0.2) 100%);
+    
+    li {
+        list-style-type: none;
+        font-weight: 100;
+        font-size: 10px;
+        color: var(--light);
+    }
+
+    @media screen and (max-width: 1440px){
+        & {
+            padding: 0 20px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        /* отута ми прописуєм що хочемо на планшеті щоб показувало не 12 а 9 слів у навігації*/
+        & li:nth-last-child(-n + 6) {
+            display: none;
+
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        &{
+            margin-top: 10px;
+        }
+        & li:nth-last-child(-n + 11) {
+            display: none;
+
+        }    
+    }
+}
+
+.info {
+    padding-top: 80px;
+    background-color: var(--light);
+}
+
+.info__title {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--dark);
+    
+}
+
+.info__paragraph {
+    margin-top: 20px;
+    width: 1100px;
+    font-weight: 400;
+    font-size: 40px;
+    color: var(--dark);
+    
+    span {
+    color: #a5a5a5;
+    }
+
+    @media screen and (max-width: 1440px){
+        width: 100%;
+    }
+}
+
+.services{
+    margin-top: 80px;
+    column-gap: 10px;
+    display: flex; /*щоб дів розділить на дві частини юзаємо флєкс*/
+
+}
+.services__items{
+    position: relative;
+    width: 50%;
+    ul {
+    margin-top: 20px;
+    padding: 0;
+}
+    li {
+    position: relative;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark);
+    list-style-type: none; /*щоб кружечки прибрать у списку*/
+    &:first-child::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 15px;
+        left: -30px;
+        top: 2px;
+        height: 15px;
+        background: url('../icons/Camera.svg') center center / cover no-repeat;
+    }
+
+    &:nth-child(3)::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 15px;
+        left: -30px;
+        top: 2px;
+        height: 15px;
+        background: url('../icons/Edit.svg') center center / cover no-repeat;
+    }
+    }
+}
+
+.services__subtitle {
+    margin-top: 80px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--dark);
+}
+
+
+
+.services__discription {
+    width: 50%;  /*це типу от 50 відсотків від діва от тута 50 і в наступному теж 50 буде*/ 
+    margin-top: 80px;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+    color: var(--dark);
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+    @media screen and (max-width: 375px) {
+        font-size: 12px;
+        letter-spacing: 0.24px;
+    }
+}
+
+.works {
+    padding-top: 80px;
+    background-color: var(--light);
+
+    @media screen and (max-width: 768px) {
+        padding-top: 50px;
+    }
+}
+
+.works__title {
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    color: var(--dark);
+    span {
+        position: relative;
+        color: var(--dark);
+    }
+    span::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 75px;
+        height: 2px;
+        bottom: -1px;
+        right: 0;
+        background-color: #000;
+
+    }
+}
+
+.works__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /*отута задаємо кількість стовпців */
+    grid-template-rows: repeat(2, 1fr) 1.5fr;
+    column-gap: 30px; /*gap це розрив між рядками та стовпцями, отута розрив між стовпцями*/
+    row-gap: 50px; /*отута розрив між рядками*/
+    margin-top: 50px;
+    img {
+        width: 100%;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    @media screen and (max-width: 768px) {
+        column-gap: 20px;
+        row-gap: 30px;
+        margin-top: 40px;
+    }
+
+    @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr; 
+    grid-template-rows: repeat(4, 1fr) 1.5fr;
+    column-gap: 0px; 
+    row-gap: 30px;
+    }
+}
+
+.inspo {
+    padding-top: 80px;
+    background-color: var(--light);
+
+}
+
+.inspo__title {
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    color: var(--dark);
+    span {
+        position: relative;
+        color: var(--dark);
+    }
+    span::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 75px;
+        height: 2px;
+        bottom: -1px;
+        right: 0;
+        background-color: #000;
+
+    }
+}
+
+.inspo__grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: 30px;
+	margin-top: 50px;
+	img {
+		width: 100%;
+		box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.25);
+	}
+}
+
+#tenement {
+	grid-row-start: 1;
+    grid-row-end: 3;
+	grid-column-start: 4;
+    grid-column-end: 5;
+}
+
+#sky {
+    grid-row: 2;
+	grid-column: 2/4;
+}
+
+.customers {
+    padding-bottom: 100px;
+    padding-top: 80px;
+    background-color: var(--light);
+}
+
+.customers__title {
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    color: var(--dark);
+    span {
+        position: relative;
+        color: var(--dark);
+    }
+    span::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 75px;
+        height: 2px;
+        bottom: -1px;
+        right: 0;
+        background-color: #000;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 36px;
+
+    }
+    @media screen and (max-width: 576px) {
+        font-size: 24px;
+    }
+}
+
+.customers__wrapper {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    img {
+        width: calc((100% - 90px) / 4);
+        box-shadow: 7px 7px 12px 0 rgba(0, 0, 0, 0.25);
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 88px var(--footer-padding-inline);
+    background-color: var(--dark);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--light);
+    
+}
+
+.footer__adress {
+    font-style: normal;
+}
+
+.footer__a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+.footer__social {
+    display: flex;
+    padding-left: 0;
+    column-gap: 30px;
+    list-style: none;
+    li {
+    background: rgba(217, 217, 217, 0);
+    border: 1px solid var(--light);
+    width: 32px;
+    height: 32px;
+    a {
+        display: flex;
+        justify-content: center; /*вирівнювання у флексах */
+        align-items: center; /*вирівнювання у флексах */
+        height: 100%;
+        width: 100%;
+    }
+    img {
+        height: 22px;
+        width: 22px;
+    }
+    }
+}
